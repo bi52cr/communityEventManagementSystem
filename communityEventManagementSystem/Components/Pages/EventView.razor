@@ -1,0 +1,35 @@
+﻿@page "/Events"
+@using communityEventManagementSystem.Data.Models;
+@using communityEventManagementSystem.Data.Services;
+@inject EventService eventService
+
+
+<PageTitle>Events</PageTitle>
+<h3>Events</h3>
+
+<EditForm FormName="Form" Model=@events OnValidSubmit="HandleSubmit">
+    <label for="NameInput">Name</label>
+    <InputText id="NameInput" @bind-Value="@events.Name"></InputText>
+
+    <label for="DateTimeInput">DateTime</label>
+    <InputDate id="DateTimeInput" @bind-Value="@events.DateTime"></InputDate>
+
+    <label for="NameInput">Description</label>
+    <InputText id="NameInput" @bind-Value="@events.Description"></InputText>
+
+
+    <button type="submit">Create </button>
+</EditForm>
+
+
+@code {
+    [SupplyParameterFromForm]
+    Event events { get; set; } = new Event();
+
+    public void HandleSubmit(EditContext editContext)
+    {
+        var newEvent = (Event)editContext.Model;
+        eventService.Add(newEvent);
+    }
+
+}
