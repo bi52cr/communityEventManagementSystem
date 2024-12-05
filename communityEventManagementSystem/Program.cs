@@ -45,6 +45,8 @@ namespace communityEventManagementSystem
 
             builder.Services.AddScoped<EventService>();
 
+            builder.Services.AddScoped<ActivityService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

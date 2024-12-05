@@ -1,0 +1,29 @@
+﻿@page "/Activity"
+@using communityEventManagementSystem.Data.Models;
+@using communityEventManagementSystem.Data.Services;
+@inject ActivityService activityService
+
+
+<PageTitle>Activity</PageTitle>
+<h3>Activities</h3>
+
+<EditForm FormName="Form" Model=@activities OnValidSubmit="HandleSubmit">
+    <label for="NameInput">Name</label>
+    <InputText id="NameInput" @bind-Value="@activities.Name"></InputText>
+
+
+    <button type="submit">Create</button>
+</EditForm>
+
+
+@code {
+    [SupplyParameterFromForm]
+    Activity activities { get; set; } = new Activity();
+
+    public void HandleSubmit(EditContext editContext)
+    {
+        var newActivity = (Activity)editContext.Model;
+        activityService.Add(newActivity);
+    }
+
+}

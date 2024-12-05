@@ -8,12 +8,12 @@ namespace communityEventManagementSystem.Data
     {
         public DbSet<Event> Events { get; set; }
 
-        //public DbSet<Participants> Participants { get; set; }
+        //public DbSet<Participant> Participants { get; set; }
 
-        //public DbSet<Venues> Venues { get; set; }
+        //public DbSet<Venue> Venues { get; set; }
 
-       // public DbSet<Activities> Activities { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
-       // public DbSet<Registrations> Registrations { get; set; }
+       // public DbSet<Registration> Registrations { get; set; }
     }
 }
